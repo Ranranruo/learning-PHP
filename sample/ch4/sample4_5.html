@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ctrl + d 똑같은 잡는거 -->
+    <form action="" name="myform">
+        userid : <input type="text" name="userid"><br/>
+        password : <input type="password" name="password"><br/>
+        username : <input type="text" name="username"><br />
+        email : <input type="text" name="email"><br />
+        phone : <input type="text" name="phone"><br />
+        <input type="button" onclick="goSend()" value="보내기">
+    </form>
+</body>
+</html>
+<script>
+    // JSP 시험 
+    function goSend(){
+        let frm = document.myform;
+        frm.action = "./receive4_5.php";
+        frm.method = "post";
+        frm.submit();
+    }
+</script>

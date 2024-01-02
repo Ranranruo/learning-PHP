@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sample/ch4/receive4_8.php" method="post">
+        <h3>배열 전송하기</h3>
+        <!-- 이름 속성에 [] 를 부여해야 배열로 전달된다 -->
+        <!-- get 방식이던 post 방식이던 동일하다 -->
+        <input type="text" name="x[]"><br/>
+        <input type="text" name="x[]"><br/>
+        <input type="text" name="x[]"><br/>
+        <input type="text" name="x[]"><br/>
+        <input type="text" name="x[]"><br/>
+        <input type="submit" value="보내기">
+    </form>
+</body>
+</html>

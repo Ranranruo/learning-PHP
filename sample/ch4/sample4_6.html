@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ctrl + d 똑같은 잡는거 -->
+    <form action="" name="myform">
+        userid : <input type="text" name="userid"><br/>
+        password : <input type="password" name="password"><br/>
+        username : <input type="text" name="username"><br />
+        email : <input type="text" name="email"><br />
+        phone : <input type="text" name="phone"><br />
+        <input type="button" onclick="goLogon()" value="보내기">
+    </form>
+</body>
+</html>
+<script>
+    // JSP 시험 
+    function goLogon(){
+        let frm = document.myform;
+        if(frm.userid.value == ""){
+            alert("아이디를 입력하세요");
+            frm.userid.focus();
+            return false;
+        }
+        if(frm.password.value == ""){
+            alert("패스워드를 입력하세요");
+            frm.password.focus();
+            return false;
+        }
+        frm.action = "/sample/ch4/login.php";
+        frm.method = "post";
+        frm.submit();
+    }
+</script>

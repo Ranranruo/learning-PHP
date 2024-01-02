@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="myform">
+        <table>
+            <tr>
+                <td>title</td>
+                <td><input type="text" name="title" maxlength="100" size="60"></td>
+            </tr>
+            <tr>
+                <td>writer</td>
+                <td><input type="text" name="writer" maxlength="100" size="60"></td>
+            </tr>
+            <tr>
+                <td>content</td>
+                <td><textarea name="contents" cols="55" rows="6"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="button" onclick="goSend()" value="보내기">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
+<script>
+    function goSend() {
+        let frm = document.myform;
+        frm.action = "./receive4_7.php";
+        frm.method = "post";
+        frm.submit();
+    }
+</script>
