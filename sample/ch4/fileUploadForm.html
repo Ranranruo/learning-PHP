@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="uploadForm" action="upload_process.php" method="post" enctype="multipart/form-data" onsubmit="return goWrite()">
+        <div>
+            <label for="upfile">첨부파일</label>
+            <input type="file" name="upfile" id="upfile"/>
+        </div>
+        <input type="submit" value="업로드"/>
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+    function goWrite(){
+        let extArray = ['hwp', 'xls', 'doc', 'xlsx', 'docx', 'pdf', 'jpg', 'gif', 'png', 'txt', 'ppt', 'pptx', 'jpeg'];
+        let path = document.getElementById('upfile').value;
+        if(path == ""){
+            alert("파일을 선택해 주세요.");
+            return false;
+        }
+        let pos = path.indexOf(".");
+        if(pos < 0){
+            alert("확장자가 없는 파일입니다.");
+            return false;
+        }
+        // 확장자 추출하기
+        let ext = path.slice(path.indexOf(".") + 1).toLowerCase();
+        let checkExt = false;
+        for(let i = 0; i < extArray.length; i++){
+            if(ext == extArray[i]){
+                checkExt = true;
+                break;
+            }
+        }
+        if(checkExt == false){
+            alert("업로드 할 수 없는 파일 확장자 입니다.");
+            return false;
+        }
+        return true;
+    }
+</script>
