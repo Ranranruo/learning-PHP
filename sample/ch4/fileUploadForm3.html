@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="uploadForm" action="upload_process2.php">
+        <div>
+            <label for="upfile">첨부파일</label>
+            <input type="file" name="upfile[]" class="upfile">
+        </div>
+        <div>
+            <label for="upfile">첨부파일</label>
+            <input type="file" name="upfile[]" class="upfile">
+        </div>
+        <div>
+            <label for="upfile">첨부파일</label>
+            <input type="file" name="upfile[]" class="upfile">
+        </div>
+        <input type="button" value="보내기" onclick="goWrite()">
+    </form>
+    <script>
+    function goWrite(){
+        // 업로드 할 수 있는 파일 확장자를 제한합니다.
+        let form = document.uploadForm;
+        console.log(form);
+        let extArray = ['jpg', 'jpeg', 'png', 'gif'];      
+        let file = document.getElementsByClassName('upfile');
+        for(let i = 0; i < file.length; i++){
+            let path = file[i].value;
+            if(path == ""){
+                alert("파일을 선택해주세요");
+                return false;
+            }
+            let pos = path.indexOf(".");
+            if(pos < 0){
+                alert("확장자가 없는파일 입니다.");
+                return false;
+            }
+            let ext = path.slice(path.indexOf(".") + 1).toLowerCase();
+            let checkExt = false;
+            for(let j = 0; j < extArray.length; j++){
+                if(ext == extArray[j]){
+                    checkExt = true;
+                    break;
+                }
+            }
+            if(checkExt == false){
+                alert("업로드 할 수 없는 파일 확장자 입니다.");
+                return false;
+            }
+        }
+        form.action = "upload_process3.php";
+        form.method = "post";
+        form.enctype = "multipart/form-data";
+        form.submit();
+        
+    }
+    </script>
+</body>
+</html>
